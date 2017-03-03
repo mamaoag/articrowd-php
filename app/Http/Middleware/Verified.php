@@ -17,11 +17,14 @@ class Verified
     public function handle($request, Closure $next, $guard = null)
     {
         if (Auth::guard($guard)->check() && Auth::user()->is_active) {
-            return $next($request);
-            
-        }
-        
-           Auth::logout();
-          return redirect('/login')->withInfo('Account not verified');       
+            return $next($request);  
+        }else{
+          if(Auth::guard($guard)->check() && !Auth::user()->is_active) {
+            Auth::logout();
+            return redirect('/login')->withInfo('Account not verified');
+          }else{
+            return redirect('/login')->withInfo('Please log in');
+          }
+        }   
     }
 }

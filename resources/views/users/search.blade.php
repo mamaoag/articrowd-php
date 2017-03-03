@@ -11,7 +11,7 @@ Search Results
             <div class="container">
                 <h1 class="title">Search</h1>
                 <form action="/search" method="GET">
-                    <p class="control has-addons"><input type="text" name="search" class="input" placeholder="Search" value="{{$title}}"><button class="button is-dark">Search</button></p>
+                    <p class="control has-addons"><input type="text" name="search" class="input" placeholder="Search" value="{{$title}}"><button class="button is-primary">Search</button></p>
                     <label for="" class="label"></label>
                             </select></span></p>
                     {{csrf_field()}}

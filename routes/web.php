@@ -30,6 +30,8 @@ Route::get('/terms', function(){
     return view('terms');
 });
 
+Route::name('users.post')->get('/post/{id}', 'User\PostController@show');
+
 Route::middleware('guest')->group(function(){
     Route::get('/login', function(){
             return view('auth.login');
@@ -56,7 +58,6 @@ Route::middleware('verified')->group(function(){
     Route::get('/u/{user}/edit', 'User\ProfileController@edit');
     Route::get('/logout', 'Auth\LoginController@logout');
     Route::post('/post', 'User\PostController@store');
-    Route::name('user.show')->get('/post/{id}', 'User\PostController@show');
     Route::post('/post/{id}/comment', 'User\CommentController@add_comment');
     Route::patch('/u/{user}', 'User\ProfileController@update');
     Route::get('/jobs', function(){

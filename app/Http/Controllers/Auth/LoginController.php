@@ -31,7 +31,6 @@ class LoginController extends Controller
                 );
 
                 if(Auth::attempt($user_details)){
-                    
                     return redirect()->to('/home');
                 }elseif(Auth::attempt($email_details)){
 

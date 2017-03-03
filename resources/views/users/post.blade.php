@@ -55,6 +55,7 @@
         @endforeach
     </div>
 </section>
+@if(Auth::check())
 <section class="section">
     <hr>
     <form action="/post/{{Request::segment(2)}}/comment" method="POST">
@@ -72,4 +73,5 @@
        {{csrf_field()}}
     </form>
 </section>
+@endif
 @endsection
